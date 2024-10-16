@@ -1,3 +1,4 @@
+import 'package:bookly_app/Const.dart';
 import 'package:bookly_app/Features/Splash/Presentaion/View/Spalsh_View.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,8 +13,12 @@ class BooklyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      home: SpalshView(),
+    return GetMaterialApp(
+      theme: ThemeData().copyWith(
+        scaffoldBackgroundColor: KPrimaryColor,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const SpalshView(),
     );
   }
 }
