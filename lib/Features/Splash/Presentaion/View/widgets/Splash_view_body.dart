@@ -1,4 +1,10 @@
+import 'package:bookly_app/Const.dart';
+import 'package:bookly_app/Features/Home/Presintion/Views/Home_Screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import 'slide_text.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -14,25 +20,36 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     super.initState();
-    animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 962));
+    InitSlideAnimation();
 
-    scrollAnimation = Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0))
-        .animate(animationController);
-    animationController.forward();
+    NavigatToHomeScreen();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-        animation: scrollAnimation,
-        builder: (context, _) {
-          return SlideTransition(
-            position: scrollAnimation,
-            child: Center(
-              child: Image.asset('assets/images/Logo.png'),
-            ),
-          );
-        });
+    return Sliding_Text(scrollAnimation: scrollAnimation);
+  }
+
+  void InitSlideAnimation() {
+    animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 962));
+
+    scrollAnimation =
+        Tween<Offset>(begin: const Offset(0, 1), end: const Offset(0, 0))
+            .animate(animationController);
+    animationController.forward();
+  }
+
+  void NavigatToHomeScreen() {
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.to(() => const HomeScreen(),
+          transition: Transition.zoom, duration: KTransionDuration);
+    });
   }
 }
