@@ -10,32 +10,61 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomAppBar(),
-          Padding(
-            padding: EdgeInsets.only(left: 15.0),
-            child: futureListView(),
+        body: CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.0),
+                child: CustomAppBar(),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 15.0),
+                child: futureListView(),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 25.0),
+                child: Text(
+                  'Best Sellar',
+                  style: Style.textstyle22,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
           ),
-          SizedBox(
-            height: 40,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 25.0),
-            child: Text(
-              'Best Sellar',
-              style: Style.textstyle22,
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25.0),
-            child: BestSellerListViewItem(),
-          )
-        ],
+        ),
+        SliverFillRemaining(
+          child: CustomBestsellerListView(),
+        )
+      ],
+    ));
+  }
+}
+
+class CustomBestsellerListView extends StatelessWidget {
+  const CustomBestsellerListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+        child: ListView.builder(
+            padding: EdgeInsets.zero,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              return const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.0),
+                child: BestSellerListViewItem(),
+              );
+            }),
       ),
     );
   }
