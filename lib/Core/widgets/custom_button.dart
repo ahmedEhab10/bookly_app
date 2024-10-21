@@ -6,11 +6,13 @@ class customButton extends StatelessWidget {
       required this.backgroundcolor,
       required this.Textcolor,
       this.borderRadius,
-      required this.text});
+      required this.text,
+      this.size});
   final Color backgroundcolor;
   final Color Textcolor;
   final BorderRadius? borderRadius;
   final String text;
+  final double? size;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,10 @@ class customButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-              fontSize: 18, color: Textcolor, fontWeight: FontWeight.w900),
+            fontSize: size ?? 18,
+            color: Textcolor,
+            fontWeight: FontWeight.w900,
+          ),
         ),
       ),
     );

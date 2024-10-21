@@ -6,9 +6,9 @@ class BookDetailsImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.symmetric(vertical: 7.0),
       child: SizedBox(
-        height: 250,
+        height: 230,
         child: AspectRatio(
           aspectRatio: 2 / 3,
           child: Container(
