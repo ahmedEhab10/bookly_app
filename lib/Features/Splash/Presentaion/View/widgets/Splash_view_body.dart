@@ -1,8 +1,7 @@
 import 'package:bookly_app/Const.dart';
 import 'package:bookly_app/Features/Home/Presintion/Views/Home_Screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:go_router/go_router.dart';
 
 import 'slide_text.dart';
 
@@ -48,8 +47,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void NavigatToHomeScreen() {
     Future.delayed(const Duration(seconds: 2), () {
-      Get.to(() => const HomeScreen(),
-          transition: Transition.zoom, duration: KTransionDuration);
+      // Get.to(() => const HomeScreen(),
+      //  transition: Transition.zoom, duration: KTransionDuration);
+      GoRouter.of(context).push('/HomeView');
     });
   }
 }
