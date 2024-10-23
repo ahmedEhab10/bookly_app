@@ -1,7 +1,6 @@
 import 'package:bookly_app/Core/Utils/Style.dart';
 import 'package:bookly_app/Features/Home/Presintion/Views/Widgets/Actiondetailsbook.dart';
 import 'package:bookly_app/Features/Home/Presintion/Views/Widgets/BookDetailsImage.dart';
-import 'package:bookly_app/Features/Home/Presintion/Views/Widgets/Custom_List_View_Item.dart';
 import 'package:bookly_app/Features/Home/Presintion/Views/Widgets/alosolikebookslistview.dart';
 import 'package:bookly_app/Features/Home/Presintion/Views/Widgets/customBookDetailsAppBar.dart';
 import 'package:bookly_app/Features/Home/Presintion/Views/Widgets/ratingbook.dart';
