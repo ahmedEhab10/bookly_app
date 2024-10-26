@@ -4,7 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
+  const BestSellerListViewItem(
+      {super.key,
+      required this.ImageUrl,
+      required this.BookName,
+      required this.auther});
+
+  final String ImageUrl;
+  final String BookName;
+  final String auther;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +29,8 @@ class BestSellerListViewItem extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  image: const DecorationImage(
-                    image: AssetImage('assets/images/Haary potter test.jpeg'),
+                  image: DecorationImage(
+                    image: NetworkImage(ImageUrl),
                   ),
                 ),
               ),
@@ -31,18 +39,17 @@ class BestSellerListViewItem extends StatelessWidget {
           const SizedBox(
             width: 30,
           ),
-          const Expanded(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Harry Potter\nand the Goblet of Fire',
-                    style: Style.textstyle20),
-                Text('1K Rowling',
-                    style: TextStyle(
+                Text(BookName, style: Style.textstyle20),
+                Text(auther,
+                    style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w300,
                         color: Colors.grey)),
-                Row(
+                const Row(
                   children: [
                     Text(
                       '19.99 \$',
